@@ -1,7 +1,9 @@
 package com.fabiana.mapaviagem.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Viagem {
@@ -18,10 +20,15 @@ public class Viagem {
 	 private Integer kmFinal;
 	 private Motorista motorista;
 	 private Veiculo veiculo;
-	 private List<Agendamento> agendamentos;
-	 private List<OcorrenciaDuranteViagem> ocorrencias;
 	 private PagamentoDiaria pagamentoDiaria;
 	 
+	 //listas inicializadas na declaração
+	 List<Agendamento> agendamentos = new ArrayList<>();
+	 List<OcorrenciaDuranteViagem> ocorrencias = new ArrayList<>();
+	 
+	 
+	
+		 
 	 public Viagem(Long id, String descricao, String cidadeOrigem, String cidadeDestino, LocalDate dataViagem,
 			LocalTime horaPrevista, Integer kmInicial, LocalDate dataRetorno, LocalTime horaChegada, Integer kmFinal,
 			Motorista motorista, Veiculo veiculo, List<Agendamento> agendamentos,
@@ -143,7 +150,7 @@ public class Viagem {
 		 return agendamentos;
 	 }
 
-	 public void setAgendamento(List<Agendamento> agendamento) {
+	 public void setAgendamento(List<Agendamento> agendamentos) {
 		 this.agendamentos = agendamentos;
 	 }
 
@@ -175,5 +182,50 @@ public class Viagem {
 		 return null;
 	 }
 	 
-
+     public BigDecimal calcularTotalOcorrencias() {
+    	 
+    	 BigDecimal totalOcorrencias = BigDecimal.ZERO;
+    	 
+    	 if (ocorrencias != null) {
+    		 
+    		 for (OcorrenciaDuranteViagem o :ocorrencias) {
+    			
+    			 totalOcorrencias = totalOcorrencias.add(o.calcularValor());
+    		 }
+    		 
+    	 }
+    	 
+    	 return totalOcorrencias;
+     }
+     
+    public BigDecimal calcularTotalDespesas() {
+    	
+       BigDecimal totalDespesas = BigDecimal.ZERO;
+    	 
+        if (ocorrencias != null) {
+    		 
+    		 for (OcorrenciaDuranteViagem o :ocorrencias) {
+    			 if (o instanceof DespesaViagem) {
+    				 totalDespesas = totalDespesas.add(o.calcularValor());
+    			 }
+    		 }
+    	 }
+    	 return totalDespesas;
+     }
+     
+     public BigDecimal calcularTotalMultas() {
+    	 
+    	 BigDecimal totalMultas = BigDecimal.ZERO;
+    	 
+         if (ocorrencias != null) {
+     		 
+     		 for (OcorrenciaDuranteViagem o :ocorrencias) {
+     			 if (o instanceof MultaViagem) {
+     				totalMultas = totalMultas.add(o.calcularValor());
+     			 }
+     		 }
+     	 }
+     	 return totalMultas;
+    	 
+     }
 }

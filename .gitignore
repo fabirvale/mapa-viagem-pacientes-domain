@@ -1,0 +1,11 @@
+# Eclipse
+/bin/
+*.class
+
+# Maven / Gradle
+/target/
+
+# IDE
+/.settings/
+/.project
+/.classpath

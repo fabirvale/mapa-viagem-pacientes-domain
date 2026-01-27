@@ -3,14 +3,16 @@ package com.fabiana.mapaviagem.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.fabiana.mapaviagem.enums.TipoUnidadeDespesa;
+
 public class DespesaViagem extends OcorrenciaDuranteViagem{
 	
-		private String unidade;
+		private TipoUnidadeDespesa unidade;
 		private Integer quantidade;
 		private String documentoFiscal;
 		private Integer km;
 		
-		public DespesaViagem(Long id, String descricao, LocalDate data, BigDecimal valor, String unidade,
+		public DespesaViagem(Long id, String descricao, LocalDate data, BigDecimal valor, TipoUnidadeDespesa unidade,
 				Integer quantidade, String documentoFiscal, Integer km) {
 			super(id, descricao, data, valor);
 			this.unidade = unidade;
@@ -21,13 +23,13 @@ public class DespesaViagem extends OcorrenciaDuranteViagem{
 		
 		
 		
-		public String getUnidade() {
+		public TipoUnidadeDespesa getUnidade() {
 			return unidade;
 		}
 
 
 
-		public void setUnidade(String unidade) {
+		public void setUnidade(TipoUnidadeDespesa unidade) {
 			this.unidade = unidade;
 		}
 
@@ -67,11 +69,17 @@ public class DespesaViagem extends OcorrenciaDuranteViagem{
 			this.km = km;
 		}
 
-
-
+	
 		@Override
 		public BigDecimal calcularValor() {
-			return null;
+
+		    if (quantidade != null && super.getValor() != null && quantidade > 0 && super.getValor().compareTo(BigDecimal.ZERO) > 0) {
+
+		        return super.getValor().multiply(BigDecimal.valueOf(quantidade));
+		    }
+
+		    return BigDecimal.ZERO;
 		}
+
 
 }

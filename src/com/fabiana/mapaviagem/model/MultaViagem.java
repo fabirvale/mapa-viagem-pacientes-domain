@@ -54,7 +54,13 @@ public class MultaViagem extends OcorrenciaDuranteViagem {
 	
 	@Override
 	public BigDecimal calcularValor() {
-		return null;
+
+	    if (super.getValor() != null && super.getValor().compareTo(BigDecimal.ZERO) > 0) {
+
+	        return super.getValor();
+	    }
+
+	    return BigDecimal.ZERO;
 	}
 
 	
