@@ -1,5 +1,7 @@
 package com.fabiana.mapaviagem.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class MultaViagem extends OcorrenciaDuranteViagem {
@@ -8,5 +10,53 @@ public class MultaViagem extends OcorrenciaDuranteViagem {
 	private LocalTime horario;
 	private String municipio;
 	private String descricaoMulta;
+	
+	public MultaViagem(Long id, String descricao, LocalDate data, BigDecimal valor, String autoInfracao,
+			LocalTime horario, String municipio, String descricaoMulta) {
+		super(id, descricao, data, valor);
+		this.autoInfracao = autoInfracao;
+		this.horario = horario;
+		this.municipio = municipio;
+		this.descricaoMulta = descricaoMulta;
+	}
+
+	public String getAutoInfracao() {
+		return autoInfracao;
+	}
+
+	public void setAutoInfracao(String autoInfracao) {
+		this.autoInfracao = autoInfracao;
+	}
+
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
+
+	public String getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
+	}
+
+	public String getDescricaoMulta() {
+		return descricaoMulta;
+	}
+
+	public void setDescricaoMulta(String descricaoMulta) {
+		this.descricaoMulta = descricaoMulta;
+	}
+	
+	@Override
+	public BigDecimal calcularValor() {
+		return null;
+	}
+
+	
 
 }

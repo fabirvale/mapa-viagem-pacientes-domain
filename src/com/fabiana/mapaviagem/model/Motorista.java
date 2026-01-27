@@ -1,9 +1,13 @@
 package com.fabiana.mapaviagem.model;
 
-public class Motorista {
+import java.time.LocalDate;
+
+public class Motorista extends Pessoa{
+
+	public Motorista(Long id, String nome, LocalDate dataNascimento, String endereco, String telefone) {
+		super(id, nome, dataNascimento, endereco, telefone);
+	}
+
 	
-	private Long id;
-	private String nome;
-	private String tel;
 
 }

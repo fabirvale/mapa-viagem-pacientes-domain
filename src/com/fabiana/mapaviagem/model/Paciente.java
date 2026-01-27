@@ -2,13 +2,19 @@ package com.fabiana.mapaviagem.model;
 
 import java.time.LocalDate;
 
-public class Paciente {
+public class Paciente extends Pessoa {
 	
-	private Long id;
-	private String nome;
-	private LocalDate dataNascimento;
 	private String cns;
-	private String endereco;
-	private String telefone;
+
+	public Paciente(Long id, String nome, LocalDate dataNascimento, String endereco, String telefone, String cns) {
+		super(id, nome, dataNascimento, endereco, telefone);
+		this.cns = cns;
+	}
+
+	public Boolean validarCNS() {
+		return false;
+	}
+	
+	
 
 }
