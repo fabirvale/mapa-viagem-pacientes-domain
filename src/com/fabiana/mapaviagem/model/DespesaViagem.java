@@ -10,10 +10,10 @@ public class DespesaViagem extends OcorrenciaDuranteViagem{
 		private TipoUnidadeDespesa unidade;
 		private Integer quantidade;
 		private String documentoFiscal;
-		private Integer km;
+		private int km;
 		
 		public DespesaViagem(Long id, String descricao, LocalDate data, BigDecimal valor, TipoUnidadeDespesa unidade,
-				Integer quantidade, String documentoFiscal, Integer km) {
+				Integer quantidade, String documentoFiscal, int km) {
 			super(id, descricao, data, valor);
 			this.unidade = unidade;
 			this.quantidade = quantidade;
@@ -27,46 +27,17 @@ public class DespesaViagem extends OcorrenciaDuranteViagem{
 			return unidade;
 		}
 
-
-
-		public void setUnidade(TipoUnidadeDespesa unidade) {
-			this.unidade = unidade;
-		}
-
-
-
 		public Integer getQuantidade() {
 			return quantidade;
 		}
-
-
-
-		public void setQuantidade(Integer quantidade) {
-			this.quantidade = quantidade;
-		}
-
 
 
 		public String getDocumentoFiscal() {
 			return documentoFiscal;
 		}
 
-
-
-		public void setDocumentoFiscal(String documentoFiscal) {
-			this.documentoFiscal = documentoFiscal;
-		}
-
-
-
-		public Integer getKm() {
+		public int getKm() {
 			return km;
-		}
-
-
-
-		public void setKm(Integer km) {
-			this.km = km;
 		}
 
 	

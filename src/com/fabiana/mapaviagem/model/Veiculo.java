@@ -2,12 +2,12 @@ package com.fabiana.mapaviagem.model;
 
 public class Veiculo {
 	
-	private Long  id;
+	private long  id;
 	private String placa;
 	private String modelo;
-	private Integer capacidadePassageiros;
+	private int capacidadePassageiros;
 	
-	public Veiculo(Long id, String placa, String modelo, Integer capacidadePassageiros) {
+	public Veiculo(long id, String placa, String modelo, int capacidadePassageiros) {
 		this.id = id;
 		this.placa = placa;
 		this.modelo = modelo;
@@ -18,10 +18,7 @@ public class Veiculo {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public String getPlaca() {
 		return placa;
 	}
@@ -38,7 +35,7 @@ public class Veiculo {
 		this.modelo = modelo;
 	}
 
-	public Integer getCapacidadePassageiros() {
+	public int getCapacidadePassageiros() {
 		return capacidadePassageiros;
 	}
 

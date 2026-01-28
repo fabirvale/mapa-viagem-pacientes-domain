@@ -11,7 +11,7 @@ public class MultaViagem extends OcorrenciaDuranteViagem {
 	private String municipio;
 	private String descricaoMulta;
 	
-	public MultaViagem(Long id, String descricao, LocalDate data, BigDecimal valor, String autoInfracao,
+	public MultaViagem(long id, String descricao, LocalDate data, BigDecimal valor, String autoInfracao,
 			LocalTime horario, String municipio, String descricaoMulta) {
 		super(id, descricao, data, valor);
 		this.autoInfracao = autoInfracao;

@@ -5,7 +5,7 @@ import java.time.LocalTime;
 
 public class Agendamento {
 	
-	private Long id;
+	private long id;
 	private Paciente paciente;
 	private Acompanhante acompanhante;
 	private Hospital hospital;
@@ -13,7 +13,7 @@ public class Agendamento {
 	private LocalDate dataAtendimento;
 	private LocalTime horarioAtendimento;
 	
-	public Agendamento(Long id, Paciente paciente, Acompanhante acompanhante, Hospital hospital, Viagem viagem,
+	public Agendamento(long id, Paciente paciente, Acompanhante acompanhante, Hospital hospital, Viagem viagem,
 			LocalDate dataAtendimento, LocalTime horarioAtendimento) {
 		this.id = id;
 		this.paciente = paciente;
@@ -26,7 +26,7 @@ public class Agendamento {
 	}
 	
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -45,10 +45,7 @@ public class Agendamento {
 		return hospital;
 	}
 
-	public void setHospital(Hospital hospital) {
-		this.hospital = hospital;
-	}
-
+	
 	public Viagem getViagem() {
 		return viagem;
 	}

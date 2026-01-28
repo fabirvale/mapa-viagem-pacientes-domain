@@ -4,17 +4,21 @@ import com.fabiana.mapaviagem.enums.TipoEstabelecimento;
 
 public class Hospital {
 	
-	private Long id;
+	private long id;
 	private String nome;
 	private String cidade;
 	private TipoEstabelecimento tipo;
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
+	public Hospital(Long id, String nome, String cidade, TipoEstabelecimento tipo) {
 		this.id = id;
+		this.nome = nome;
+		this.cidade = cidade;
+		this.tipo = tipo;
+	}
+	
+	
+	public long getId() {
+		return id;
 	}
 
 	public String getNome() {
@@ -41,13 +45,6 @@ public class Hospital {
 		this.tipo = tipo;
 	}
 
-	public Hospital(Long id, String nome, String cidade, TipoEstabelecimento tipo) {
-		this.id = id;
-		this.nome = nome;
-		this.cidade = cidade;
-		this.tipo = tipo;
-	}
-	
 	
 
 }
