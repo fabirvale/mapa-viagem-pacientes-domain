@@ -11,7 +11,7 @@ public class Acompanhante extends Pessoa {
 		this.cns = cns;
 	}
 
-	public Boolean validarCNS() {
+	public boolean validarCNS() {
 		return false;
 	}
 
