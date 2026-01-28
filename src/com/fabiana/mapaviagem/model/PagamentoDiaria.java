@@ -7,13 +7,13 @@ import com.fabiana.mapaviagem.enums.TipoDiaria;
 
 public class PagamentoDiaria {
 
-	private long id;
+	private Long id;
 	private TipoDiaria tipoDiaria;
 	private LocalDateTime dataHoraSaida;
 	private LocalDateTime dataHoraAlmoco;
 	private LocalDateTime dataHoraRetorno;
 
-	public PagamentoDiaria(long id, TipoDiaria tipoDiaria, LocalDateTime dataHoraSaida,
+	public PagamentoDiaria(Long id, TipoDiaria tipoDiaria, LocalDateTime dataHoraSaida,
 			LocalDateTime dataHoraAlmoco, LocalDateTime dataHoraRetorno) {
 		this.id = id;
 		this.tipoDiaria = tipoDiaria;
@@ -22,7 +22,7 @@ public class PagamentoDiaria {
 		this.dataHoraRetorno = dataHoraRetorno;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class Pessoa {
 	
-	private long id;
+	private Long id;
 	private String nome;
 	private LocalDate dataNascimento;
 	private String endereco;
 	private String telefone;
 	
-	public Pessoa(long id, String nome, LocalDate dataNascimento, String endereco, String telefone) {
+	public Pessoa(Long id, String nome, LocalDate dataNascimento, String endereco, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
@@ -22,10 +22,7 @@ public class Pessoa {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public String getNome() {
 		return nome;
 	}

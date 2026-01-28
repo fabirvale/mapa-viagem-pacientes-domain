@@ -5,7 +5,7 @@ import java.time.LocalTime;
 
 public class Agendamento {
 	
-	private long id;
+	private Long id;
 	private Paciente paciente;
 	private Acompanhante acompanhante;
 	private Hospital hospital;
@@ -13,7 +13,7 @@ public class Agendamento {
 	private LocalDate dataAtendimento;
 	private LocalTime horarioAtendimento;
 	
-	public Agendamento(long id, Paciente paciente, Acompanhante acompanhante, Hospital hospital, Viagem viagem,
+	public Agendamento(Long id, Paciente paciente, Acompanhante acompanhante, Hospital hospital, Viagem viagem,
 			LocalDate dataAtendimento, LocalTime horarioAtendimento) {
 		this.id = id;
 		this.paciente = paciente;
@@ -26,7 +26,7 @@ public class Agendamento {
 	}
 	
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

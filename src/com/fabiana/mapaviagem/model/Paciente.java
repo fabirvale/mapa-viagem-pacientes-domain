@@ -6,7 +6,7 @@ public class Paciente extends Pessoa {
 	
 	private String cns;
 
-	public Paciente(long id, String nome, LocalDate dataNascimento, String endereco, String telefone, String cns) {
+	public Paciente(Long id, String nome, LocalDate dataNascimento, String endereco, String telefone, String cns) {
 		super(id, nome, dataNascimento, endereco, telefone);
 		this.cns = cns;
 	}

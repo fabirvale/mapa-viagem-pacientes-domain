@@ -4,7 +4,7 @@ import com.fabiana.mapaviagem.enums.TipoEstabelecimento;
 
 public class Hospital {
 	
-	private long id;
+	private Long id;
 	private String nome;
 	private String cidade;
 	private TipoEstabelecimento tipo;
@@ -17,7 +17,7 @@ public class Hospital {
 	}
 	
 	
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

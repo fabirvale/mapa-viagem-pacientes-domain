@@ -54,10 +54,6 @@ public class Viagem {
 		 return id;
 	 }
 
-	 public void setId(Long id) {
-		 this.id = id;
-	 }
-
 	 public String getDescricao() {
 		 return descricao;
 	 }
@@ -86,50 +82,31 @@ public class Viagem {
 		 return dataViagem;
 	 }
 
-	 public void setDataViagem(LocalDate dataViagem) {
-		 this.dataViagem = dataViagem;
-	 }
-
+	
 	 public LocalTime getHoraPrevista() {
 		 return horaPrevista;
 	 }
 
-	 public void setHoraPrevista(LocalTime horaPrevista) {
-		 this.horaPrevista = horaPrevista;
-	 }
-
+	
 	 public Integer getKmInicial() {
 		 return kmInicial;
 	 }
 
-	 public void setKmInicial(Integer kmInicial) {
-		 this.kmInicial = kmInicial;
-	 }
-
+	
 	 public LocalDate getDataRetorno() {
 		 return dataRetorno;
 	 }
 
-	 public void setDataRetorno(LocalDate dataRetorno) {
-		 this.dataRetorno = dataRetorno;
-	 }
-
+	
 	 public LocalTime getHoraChegada() {
 		 return horaChegada;
-	 }
-
-	 public void setHoraChegada(LocalTime horaChegada) {
-		 this.horaChegada = horaChegada;
 	 }
 
 	 public Integer getKmFinal() {
 		 return kmFinal;
 	 }
 
-	 public void setKmFinal(Integer kmFinal) {
-		 this.kmFinal = kmFinal;
-	 }
-
+	
 	 public Motorista getMotorista() {
 		 return motorista;
 	 }
@@ -146,40 +123,80 @@ public class Viagem {
 		 this.veiculo = veiculo;
 	 }
 
-	 public List<Agendamento> getAgendamento() {
+	 public List<Agendamento> getAgendamentos() {
 		 return agendamentos;
-	 }
-
-	 public void setAgendamento(List<Agendamento> agendamentos) {
-		 this.agendamentos = agendamentos;
 	 }
 
 	 public List<OcorrenciaDuranteViagem> getOcorrencias() {
 		 return ocorrencias;
 	 }
 
-	 public void setOcorrencias(List<OcorrenciaDuranteViagem> ocorrencias) {
-		 this.ocorrencias = ocorrencias;
-	 }
-
+	
 	 public PagamentoDiaria getPagamentoDiaria() {
 		 return pagamentoDiaria;
 	 }
 
-	 public void setPagamentoDiaria(PagamentoDiaria pagamentoDiaria) {
-		 this.pagamentoDiaria = pagamentoDiaria;
-	 }
-	 
-	 public void iniciarViagem(){
 		 
-	 }
-	 
-	 public void finalizarViagem(Integer kmFinal){
-		 
-	 }
+	 public void iniciarViagem() {
+
+		    if (motorista == null) {
+		        throw new IllegalStateException();
+		    }
+
+		    if (agendamentos == null || agendamentos.isEmpty()) {
+		        throw new IllegalStateException();
+		    }
+
+		    boolean possuiAgendamentoNaData = false;
+
+		    for (Agendamento agendamento : agendamentos) {
+		        if (agendamento.getDataAtendimento().equals(dataViagem)) {
+		            possuiAgendamentoNaData = true;
+		            break;
+		        }
+		    }
+
+		    if (!possuiAgendamentoNaData) {
+		        throw new IllegalStateException();
+		    }
+
+		    // viagem iniciada
+		}
+
+	 public void finalizarViagem(int kmFinal, LocalDate dataRetorno, LocalTime horaChegada) {
+
+		    // validações básicas
+		    if (dataViagem == null || kmInicial <= 0) {
+		        throw new IllegalStateException();
+		    }
+
+		    if (kmFinal < kmInicial) {
+		        throw new IllegalStateException();
+		    }
+
+		    if (dataRetorno.isBefore(dataViagem)) {
+		        throw new IllegalStateException();
+		    }
+
+		    if (pagamentoDiaria == null) {
+		        throw new IllegalStateException();
+		    }
+
+		    // mudança de estado
+		    this.kmFinal = kmFinal;
+		    this.dataRetorno = dataRetorno;
+		    this.horaChegada = horaChegada;
+
+		    // regra de negócio derivada
+		    pagamentoDiaria.definirTipoDiaria();
+		}
+
 	 
 	 public Integer calcularKmPercorrido(){
-		 return null;
+		 if (kmFinal <= 0) {
+		        return 0;
+		    }
+		 return kmFinal - kmInicial;
 	 }
 	 
      public BigDecimal calcularTotalOcorrencias() {
